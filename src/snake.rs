@@ -6,7 +6,7 @@ use crate::draw::draw_block;
 
 const SNAKE_COLOUR: Colour = [0.00, 1.00, 0.00, 1.00];
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq)]
 pub enum Direction {
   Up,
   Down,
@@ -25,7 +25,7 @@ impl Direction {
   }
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 struct Block {
   x: i32,
   y: i32,
