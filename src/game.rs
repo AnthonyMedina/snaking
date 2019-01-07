@@ -25,6 +25,8 @@ pub struct Game {
 
   game_over: bool,
   waiting_time: f64,
+
+  score: i32,
 }
 
 impl Game {
@@ -38,6 +40,7 @@ impl Game {
       width,
       height,
       game_over: false,
+      score: 0,
     }
   }
 
@@ -102,6 +105,7 @@ impl Game {
     if self.food_exists && self.food_x == head_x && self.food_y == head_y {
       self.food_exists = false;
       self.snake.restore_tail();
+      self.update_score();
     }
   }
 
@@ -147,5 +151,9 @@ impl Game {
     self.food_x = 6;
     self.food_y = 4;
     self.game_over = false;
+  }
+
+  pub fn update_score(&mut self) {
+    self.score += 1;
   }
 }
